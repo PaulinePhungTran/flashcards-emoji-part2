@@ -1,0 +1,164 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* ---- 3D Flip Card ---- */
+.card-stage {
+  perspective: 1000px;                /* 3D camera */
+  width: min(90vw, 360px);
+  margin: 1.5rem auto;
+}
+
+/* base */
+.card3d {
+  --scale: 1;                         /* <— hover will change this */
+  position: relative;
+  width: 100%;
+  height: 240px;
+  transform-style: preserve-3d;
+  transition: transform 600ms ease;
+  cursor: pointer;
+}
+
+/* not flipped */
+.card3d:not(.is-flipped) {
+  transform: rotateY(0deg) scale(var(--scale));
+}
+
+/* flipped */
+.card3d.is-flipped {
+  transform: rotateY(180deg) scale(var(--scale));
+}
+
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;        /* hide backside when turned */
+  font-size: clamp(28px, 8vw, 40px);  /* emojis big; answers readable */
+  text-align: center;
+}
+
+.card-front {
+  background: #e0f7fa;   /* pastel aqua */
+  color: #222;
+}
+
+.card-back {
+  background: #ffe4e1;                /* soft yellow for “answer” */
+  transform: rotateY(180deg);
+  font-size: clamp(18px, 4.5vw, 28px);
+  color: #111;
+}
+
+/* Button polish (optional) */
+button {
+  border: none;
+  background: #4cafef;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+button:active { transform: translateY(1px); }
+
+button:hover {
+  background: #1d9bf0;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card3d { transition: none; }
+}
+
+.card3d {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card3d:hover {
+  transform: scale(1.05) rotateY(var(--rotate, 0deg));
+  transition: transform 400ms ease;
+}
+
+/* For background */
+body {
+  background: linear-gradient(135deg, #ffe555, #fa5acf, #2d5ad6, #64e0ff, #6de1f3, #fbc2eb, #f3de9c); /* For background gradient rainbow color */
+  background-size: 400% 400%; /* makes the gradient smoother */
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* For pastel random font*/
+.card-front.color1 { background: #f9d5e9; }
+.card-front.color2 { background: #e0f7fa; }
+.card-front.color3 { background: #e6e6fa; }
+.card-front.color4 { background: #f0fff0; }
+.card-front.color5 { background: #fffacd; }
+
+/* Headline + subhead styling */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: #f5f6f7;              /* deep navy for contrast */
+  margin: 0 0 .5rem 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+p {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  color: #f4f5f9;
+  margin: .5rem 0;
+  opacity: .95;
+}
