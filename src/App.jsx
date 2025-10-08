@@ -119,7 +119,7 @@ export default function App() {
 
   return (
     <main className="app">
-      <h1>Emoji Flashcards — Part 2</h1>
+      <h1>🫢 Emoji Pictionary 🤫</h1>
       <p>
         Cards left: {remainingIdxs.length} / {cards.length} · Mastered:{" "}
         {mastered.size}
