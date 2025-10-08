@@ -28,7 +28,7 @@ export default function App() {
   if (remainingIdxs.length === 0) {
     return (
       <main className="app">
-        <h1>Emoji Flashcards — Part 2</h1>
+        <h1>🫢 Emoji Pictionary 🤫</h1>
         <p>Cards left: 0 / {cards.length} · Mastered: {cards.length}</p>
         <p>🎉 You’ve mastered all cards!</p>
         <button
