@@ -1,10 +1,12 @@
-# Web Development Project 3 - *Name of App Here*
+# Web Development Project 3 – Emoji Pictionary
 
-Submitted by: **Phung Tran**
+Submitted by: **Phung Tran**  
+Live site: https://flashcards-emoji-part2.netlify.app  
+Repo: https://github.com/PaulinePhungTran/flashcards-emoji-part2
 
-This web app: **insert description**
+This web app is a flashcard guessing game built with React. Each card shows emojis; you type your guess **before** flipping. The app gives instant feedback, supports fuzzy matching (ignores case/punctuation), keyboard shortcuts, and lets you mark mastered cards to remove them from the deck.
 
-Time spent: **4** hours spent in total
+Time spent: **4** hours in total
 
 ## Required Features
 
@@ -13,18 +15,17 @@ The following **required** functionality is completed:
 - [x] **The user can enter their guess into an input box *before* seeing the flipside of the card**
   - Application features a clearly labeled input box with a submit button where users can type in a guess
   - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong 
-  -  Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
-- [x] **The user can navigate through an ordered list of cardss**
+  - Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
+- [x] **The user can navigate through an ordered list of cards**
   - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
   - A previous/back button displayed on the card returns to the previous card in the set sequence when clicked
-  - Both the next and back buttons should have some visual indication that the user is at the beginning or end of the list (for example, graying out and no longer being available to click), not allowing for wrap-around navigation
+  - Both the next and back buttons have a visual indication when the user is at the beginning or end (buttons are disabled)
 
-The following **optional** features are implemented:
-
+## Optional Features
 
 - [ ] Users can use a shuffle button to randomize the order of the cards
-  - Cards should remain in the same sequence (**NOT** randomized) unless the shuffle button is clicked 
-  - Cards should change to a random sequence once the shuffle button is clicked
+  - Cards remain in the same sequence unless the shuffle button is clicked 
+  - Cards change to a random sequence once the shuffle button is clicked
 - [x] A user’s answer may be counted as correct even when it is slightly different from the target answer
   - Answers are considered correct even if they only partially match the answer on the card 
   - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies, matching only for a particular part of the answer rather than the whole answer
@@ -36,42 +37,37 @@ The following **optional** features are implemented:
   - The user can mark a card to indicate that it has been mastered
   - Mastered cards are removed from the pool of displayed cards and added to a list of mastered cards
 
+## Additional Features
 
-The following **additional** features are implemented:
-
-* [x] List anything else that you added to improve the site's functionality!
-- Hint appears after 2 incorrect attempts
-- Keyboard shortcuts: **Enter** submits; **← / →** navigate cards
+- [x] Hint appears after 2 incorrect attempts (shows first letter)
+- [x] Keyboard shortcuts: **Enter** submits; **← / →** navigate cards
+- [x] Accessible announcements on result feedback (`aria-live`)
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+<img src="https://i.imgur.com/kycrBJV.gif" width="700" alt="Emoji Pictionary walkthrough" />
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with **Kap**.
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Some small challenges I ran into:
+- Netlify showing an older build title until I pushed latest changes & redeployed.
+- Managing “mastered” cards without breaking next/previous navigation (I solved this by tracking original indices and rebuilding the remaining deck on the fly).
+- Implementing fuzzy matching cleanly (Unicode‐aware lowercasing + removing punctuation/spaces).
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+Copyright 2025 Phung Tran
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
